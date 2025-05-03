@@ -1,16 +1,4 @@
-function toggleButtons(){
-    const startButton = document.getElementById('startButton');
-    const stopButton = document.getElementById('stopButton');
-
-    if (startButton.style.display === 'none') {
-        startButton.style.display = 'inline-block';
-        stopButton.style.display = 'none';
-    }else{
-        startButton.style.display = 'none';
-        stopButton.style.display = 'inline-block';
-    }
-}
-
+// listeners
 document.getElementById('startButton').addEventListener('click', function(){
     // Extract the time
     const currentTime = new Date().toLocaleTimeString();
@@ -38,3 +26,19 @@ document.getElementById('stopButton').addEventListener('click', function(){
     // toggle the stop button
     toggleButtons();
 });
+
+// global variables
+
+// functions
+function toggleButtons(){
+    const startButton = document.getElementById('startButton');
+    const stopButton = document.getElementById('stopButton');
+
+    if (startButton.style.display === 'none') {
+        startButton.style.display = 'inline-block';
+        stopButton.style.display = 'none';
+    }else{
+        startButton.style.display = 'none';
+        stopButton.style.display = 'inline-block';
+    }
+}
