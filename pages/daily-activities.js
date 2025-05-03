@@ -15,6 +15,16 @@ document.getElementById('startButton').addEventListener('click', function(){
     // Extract the input text
     const inputText = document.getElementById('taskInput').value
 
+    if(inputText === ""){
+        alert("Please enter a task before starting...");
+        return;
+    }
+
+    // add a paragraph tag to the activity display
+    const activityDisplay = document.getElementById('activityDisplay');
+
+
+
     toggleButtons();
 });
 
