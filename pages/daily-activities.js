@@ -12,6 +12,9 @@ function toggleButtons(){
 }
 
 document.getElementById('startButton').addEventListener('click', function(){
+    // Extract the time
+    const currentTime = new Date().toLocaleTimeString();
+       
     // Extract the input text
     const inputText = document.getElementById('taskInput').value
 
@@ -22,8 +25,9 @@ document.getElementById('startButton').addEventListener('click', function(){
 
     // add a paragraph tag to the activity display
     const activityDisplay = document.getElementById('activityDisplay');
-
-
+    const newParagraph = document.createElement('p');
+    newParagraph.textContent = `[${currentTime}] Start ${inputText}`;
+    activityDisplay.appendChild(newParagraph); 
 
     toggleButtons();
 });
