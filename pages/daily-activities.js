@@ -1,21 +1,27 @@
+// global variables
+let currentTask = '';
+
 // listeners
 document.getElementById('startButton').addEventListener('click', function(){
     // Extract the time
     const currentTime = new Date().toLocaleTimeString();
        
     // Extract the input text
-    const inputText = document.getElementById('taskInput').value
+    const inputText = document.getElementById('taskInput')
 
     if(inputText === ""){
         alert("Please enter a task before starting...");
         return;
     }
 
+    // update current task
+    currentTask = inputText.value;
+
     // add a paragraph tag to the activity display
-    const activityDisplay = document.getElementById('activityDisplay');
-    const newParagraph = document.createElement('p');
-    newParagraph.textContent = `[${currentTime}] Start ${inputText}`;
-    activityDisplay.appendChild(newParagraph); 
+    addActivityToDisplay(`[${currentTime}] Start ${inputText.value}`);
+
+    // reset the input text
+    inputText.value = '';
 
     toggleButtons();
 });
@@ -27,7 +33,6 @@ document.getElementById('stopButton').addEventListener('click', function(){
     toggleButtons();
 });
 
-// global variables
 
 // functions
 function toggleButtons(){
@@ -41,4 +46,12 @@ function toggleButtons(){
         startButton.style.display = 'none';
         stopButton.style.display = 'inline-block';
     }
+}
+
+// create a paragraph tag to the activity display with the new activity
+function addActivityToDisplay(activityText){
+    const activityDisplay = document.getElementById('activityDisplay');
+    const newParagraph = document.createElement('p');
+    newParagraph.textContent = activityText;
+    activityDisplay.appendChild(newParagraph); 
 }
