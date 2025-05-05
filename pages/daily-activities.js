@@ -44,11 +44,14 @@ document.getElementById("stopButton").addEventListener("click", function () {
 function toggleButtons() {
   const startButton = document.getElementById("startButton");
   const stopButton = document.getElementById("stopButton");
+  const taskInput = document.getElementById("taskInput");
 
   if (startButton.style.display === "none") {
+    taskInput.style.display = "inline-block";
     startButton.style.display = "inline-block";
     stopButton.style.display = "none";
   } else {
+    taskInput.style.display = "none";
     startButton.style.display = "none";
     stopButton.style.display = "inline-block";
   }
