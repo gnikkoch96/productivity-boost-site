@@ -40,6 +40,37 @@ document.getElementById("stopButton").addEventListener("click", function () {
   toggleButtons();
 });
 
+document
+  .getElementById("exportButton")
+  .addEventListener("click", async function () {
+    // Extract the activity text area content
+    const activityTextArea =
+      document.getElementById("activityTextArea");
+
+    // Create a .txt file with the current date as the name
+    const currentDate = new Date().toISOString().split("T")[0]; // Format: YYYY-MM-DD
+    const fileName = `${currentDate}.txt`;
+    const fileContent = activityTextArea.textContent;
+    try {
+      const fileHandle = await window.showSaveFilePicker({
+        suggestedName: fileName,
+        types: [
+          {
+            description: "Text Files",
+            accept: { "text/plain": [".txt"] },
+          },
+        ],
+      });
+
+      const writableStream = await fileHandle.createWritable();
+      await writableStream.write(fileContent);
+      await writableStream.close();
+      console.log("File saved successfully!");
+    } catch (err) {
+      console.error("File save canceled or failed:", err);
+    }
+  });
+
 // functions
 function toggleButtons() {
   const startButton = document.getElementById("startButton");
@@ -59,8 +90,6 @@ function toggleButtons() {
 
 // create a paragraph tag to the activity display with the new activity
 function addActivityToDisplay(activityText) {
-  const activityDisplay = document.getElementById("activityDisplay");
-  const newParagraph = document.createElement("p");
-  newParagraph.textContent = activityText;
-  activityDisplay.appendChild(newParagraph);
+  const activityTextArea = document.getElementById("activityTextArea");
+  activityTextArea.textContent += activityText + "\n";
 }

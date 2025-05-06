@@ -1,23 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/pages/daily-activities.css" />
     <script src="/pages/daily-activities.js" defer></script>
     <title>Document</title>
-</head>
-<body>
-    <p>Welcome to Daily Activities!</p>
-    
-    <!-- Enter Daily Activity -->
-    <div>
-        <input id="taskInput" type="text" placeholder="Enter Task..." />
-        <button id="startButton">Start</button>
-        <button id="stopButton" style="display:none">Stop</button>
-    </div>
+  </head>
+  <body>
+    <header>
+      <h1>Welcome to Daily Activities!</h1>
+    </header>
 
-    <!-- Display Daily Activity -->
-    <div id="activityDisplay">
-    </div>
-</body>
+    <main>
+      <!-- Enter Daily Activity -->
+      <section aria-labelledby="activity-entry">
+          <div>
+            <input id="taskInput" type="text" placeholder="Enter Task..." />
+            <button id="startButton">Start</button>
+            <button id="stopButton" style="display: none">Stop</button>
+          </div>
+      </section>
+
+      <!-- Display Daily Activity -->
+      <section aria-labelledby="activity-log">
+          <div>
+            <textarea id="activityTextArea"></textarea>
+          </div>
+      </section>
+      
+      <!-- Export -->
+      <section aria-labelledby="export-log">
+          <div>
+            <button id="exportButton">Export</button>
+          </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Daily Activities</p>
+    </footer>
+  </body>
 </html>
