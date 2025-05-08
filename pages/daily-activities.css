@@ -1,0 +1,173 @@
+/* Base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f9f9f9;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header styles */
+header {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 28px;
+  color: #1a1a1a;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #4caf50;
+  display: inline-block;
+}
+
+/* Main content layout */
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Section styles */
+section {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+/* Activity entry section */
+section[aria-labelledby="activity-entry"] div{
+  display: flex;
+  gap: 10px;
+}
+
+#task-input {
+  flex: 1;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+#task-input:focus {
+  outline: none;
+  border-color: #4caf50;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#start-button {
+  background-color: #4caf50;
+  color: white;
+}
+
+#start-button:hover {
+  background-color: #3e8e41;
+}
+
+#stop-button {
+  background-color: #f44336;
+  color: white;
+}
+
+#stop-button:hover {
+  background-color: #d32f2f;
+}
+
+/* Activity log section */
+#activity-text-area {
+  width: 100%;
+  min-height: 250px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+#activity-text-area:focus {
+  outline: none;
+  border-color: #4caf50;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+/* Export button section */
+#export-button {
+  background-color: #2196f3;
+  color: white;
+}
+
+#export-button:hover {
+  background-color: #0b7dda;
+}
+
+/* Footer styles */
+footer {
+  margin-top: 30px;
+  text-align: center;
+  color: #777;
+  font-size: 14px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  body {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  #activity-entry + div {
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
+  }
+}
+
+/* Active task indication */
+.active-task {
+  background-color: #f9fff9;
+  border-left: 4px solid #4caf50;
+}
+
+/* Optional: Animation for start/stop button transition */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.pulse {
+  animation: pulse 1.5s infinite;
+}

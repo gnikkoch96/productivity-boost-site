@@ -14,26 +14,29 @@
 
     <main>
       <!-- Enter Daily Activity -->
-      <section aria-labelledby="activity-entry">
-          <div>
-            <input id="taskInput" type="text" placeholder="Enter Task..." />
-            <button id="startButton">Start</button>
-            <button id="stopButton" style="display: none">Stop</button>
-          </div>
+      <section id="activity-entry" aria-labelledby="activity-entry">
+        <div>
+          <input id="task-input" type="text" placeholder="Enter Task..." />
+          <button id="start-button">Start</button>
+        </div>
       </section>
 
       <!-- Display Daily Activity -->
       <section aria-labelledby="activity-log">
-          <div>
-            <textarea id="activityTextArea"></textarea>
-          </div>
+        <div>
+          <textarea id="activity-text-area"></textarea>
+        </div>
       </section>
-      
+
       <!-- Export -->
       <section aria-labelledby="export-log">
-          <div>
-            <button id="exportButton">Export</button>
-          </div>
+        <div>
+          <button id="export-button">Export</button>
+        </div>
+      </section>
+
+      <section>
+        <button id="stop-button" style="display: none">Stop</button>
       </section>
     </main>
 

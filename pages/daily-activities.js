@@ -2,17 +2,27 @@
 let currentTask = "";
 
 // listeners
-document.getElementById("startButton").addEventListener("click", function () {
+document.addEventListener("keydown", function (event) {
+  // Check if the pressed key is "Enter"
+  if (event.key === "Enter") {
+    // Trigger the click event on the "Start" button
+    document.getElementById("startButton").click();
+  }
+});
+
+document.getElementById("start-button").addEventListener("click", function () {
   // Extract the time
   const currentTime = new Date().toLocaleTimeString();
 
   // Extract the input text
-  const inputText = document.getElementById("taskInput");
+  const inputText = document.getElementById("task-input");
 
   if (inputText === "") {
     alert("Please enter a task before starting...");
     return;
   }
+
+  document.getElement
 
   // update current task
   currentTask = inputText.value;
@@ -26,7 +36,7 @@ document.getElementById("startButton").addEventListener("click", function () {
   toggleButtons();
 });
 
-document.getElementById("stopButton").addEventListener("click", function () {
+document.getElementById("stop-button").addEventListener("click", function () {
   // Extract the time
   const currentTime = new Date().toLocaleTimeString();
 
@@ -41,11 +51,10 @@ document.getElementById("stopButton").addEventListener("click", function () {
 });
 
 document
-  .getElementById("exportButton")
+  .getElementById("export-button")
   .addEventListener("click", async function () {
     // Extract the activity text area content
-    const activityTextArea =
-      document.getElementById("activityTextArea");
+    const activityTextArea = document.getElementById("activity-text-area");
 
     // Create a .txt file with the current date as the name
     const currentDate = new Date().toISOString().split("T")[0]; // Format: YYYY-MM-DD
@@ -73,9 +82,9 @@ document
 
 // functions
 function toggleButtons() {
-  const startButton = document.getElementById("startButton");
-  const stopButton = document.getElementById("stopButton");
-  const taskInput = document.getElementById("taskInput");
+  const startButton = document.getElementById("start-button");
+  const stopButton = document.getElementById("stop-button");
+  const taskInput = document.getElementById("task-input");
 
   if (startButton.style.display === "none") {
     taskInput.style.display = "inline-block";
@@ -90,6 +99,6 @@ function toggleButtons() {
 
 // create a paragraph tag to the activity display with the new activity
 function addActivityToDisplay(activityText) {
-  const activityTextArea = document.getElementById("activityTextArea");
+  const activityTextArea = document.getElementById("activity-text-area");
   activityTextArea.textContent += activityText + "\n";
 }
