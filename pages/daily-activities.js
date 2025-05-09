@@ -2,6 +2,7 @@
 let currentTask = "";
 
 // listeners
+
 document.addEventListener("keydown", function (event) {
   // Check if the pressed key is "Enter"
   if (event.key === "Enter") {
@@ -22,8 +23,6 @@ document.getElementById("start-button").addEventListener("click", function () {
     return;
   }
 
-  document.getElement
-
   // update current task
   currentTask = inputText.value;
 
@@ -33,7 +32,7 @@ document.getElementById("start-button").addEventListener("click", function () {
   // reset the input text
   inputText.value = "";
 
-  toggleButtons();
+  toggleFocused();
 });
 
 document.getElementById("stop-button").addEventListener("click", function () {
@@ -46,8 +45,7 @@ document.getElementById("stop-button").addEventListener("click", function () {
   // reset the current task
   currentTask = "";
 
-  // toggle the stop button
-  toggleButtons();
+  toggleFocused();
 });
 
 document
@@ -81,19 +79,24 @@ document
   });
 
 // functions
-function toggleButtons() {
-  const startButton = document.getElementById("start-button");
-  const stopButton = document.getElementById("stop-button");
-  const taskInput = document.getElementById("task-input");
 
-  if (startButton.style.display === "none") {
-    taskInput.style.display = "inline-block";
-    startButton.style.display = "inline-block";
-    stopButton.style.display = "none";
-  } else {
-    taskInput.style.display = "none";
-    startButton.style.display = "none";
-    stopButton.style.display = "inline-block";
+// this toggles between starting and stopping an activity
+function toggleFocused() {
+  const activityEntrySection = document.getElementById('activity-entry');
+  const activityLogSection = document.getElementById('activity-log');
+  const exportLogSection = document.getElementById('export-log'); 
+  const focusedSection = document.getElementById('focused');
+  
+  if(focusedSection.style.display === "") {
+    focusedSection.style.display = "flex";
+    activityEntrySection.style.display = "none";
+    activityLogSection.style.display = "none";
+    exportLogSection.style.display = "none"; 
+  }else{
+    focusedSection.style.display = "";
+    activityEntrySection.style.display = "block";
+    activityLogSection.style.display = "block";
+    exportLogSection.style.display = "block"; 
   }
 }
 
